@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
+  <title>Palavir Compliance</title>
+  <rect width="60" height="60" rx="10" fill="#0F172A"/>
+  <path d="M30 10 L46 18 V32 C46 41 39 48 30 50 C21 48 14 41 14 32 V18 Z"
+        fill="#FACC15" stroke="#0F172A" stroke-width="2"/>
+  <path d="M22 30 L28 36 L40 22" fill="none" stroke="#0F172A" stroke-width="3.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

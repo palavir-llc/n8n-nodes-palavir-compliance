@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-palavir-compliance",
   "version": "0.1.0",
-  "description": "n8n community node for Palavir Compliance — screen entities against LEIE, OFAC SDN, and SAM.gov in one call.",
+  "description": "n8n community node for Palavir Compliance, screen entities against LEIE, OFAC SDN, and SAM.gov in one call.",
   "keywords": [
     "n8n-community-node-package",
     "n8n",
@@ -20,13 +20,18 @@
     "type": "git",
     "url": "https://github.com/palavir-llc/n8n-nodes-palavir-compliance"
   },
+  "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node -e \"require('fs').copyFileSync('nodes/PalavirCompliance/palavirCompliance.svg', 'dist/nodes/PalavirCompliance/palavirCompliance.svg')\"",
     "dev": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
