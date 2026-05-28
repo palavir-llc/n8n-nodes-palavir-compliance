@@ -5,7 +5,7 @@ class PalavirCompliance {
     description = {
         displayName: "Palavir Compliance",
         name: "palavirCompliance",
-        icon: "fa:shield-alt",
+        icon: "file:palavirCompliance.svg",
         group: ["transform"],
         version: 1,
         subtitle: '={{$parameter["operation"]}}',
@@ -49,6 +49,22 @@ class PalavirCompliance {
                             request: { method: "GET", url: "/api/info" },
                         },
                     },
+                    {
+                        name: "Get API Stats",
+                        value: "getStats",
+                        action: "Get record counts and last-refresh timestamps",
+                        routing: {
+                            request: { method: "GET", url: "/api/stats" },
+                        },
+                    },
+                    {
+                        name: "Health Check",
+                        value: "healthCheck",
+                        action: "Check API liveness",
+                        routing: {
+                            request: { method: "GET", url: "/health" },
+                        },
+                    },
                 ],
                 default: "screenEntity",
             },
@@ -82,11 +98,12 @@ class PalavirCompliance {
             {
                 displayName: "Entities (JSON array)",
                 name: "entities",
-                type: "json",
+                type: "string",
+                typeOptions: { rows: 6 },
                 default: '[\n  {"name": "John Smith", "npi": "1234567890"}\n]',
                 required: true,
                 displayOptions: { show: { operation: ["screenBatch"] } },
-                description: "Array of 1-100 entities. Each needs `name`; optional `npi`, `state`, `dob`.",
+                description: "Array of 1-100 entities, JSON-encoded. Each entity needs `name` (string); optional `npi`, `state` (2-letter), `dob` (YYYY-MM-DD).",
                 routing: { request: { body: { entities: "={{JSON.parse($value)}}" } } },
             },
         ],
